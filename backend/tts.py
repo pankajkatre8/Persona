@@ -6,7 +6,6 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 tts = TTS("tts_models/en/vctk/vits")
 tts.to(device)
 
-# pick a default speaker (any valid one)
 DEFAULT_SPEAKER = "p225"
 
 def text_to_speech(text, output_wav):

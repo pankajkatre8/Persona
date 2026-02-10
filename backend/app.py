@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from generate import generate_pipeline
 import os
@@ -16,10 +16,8 @@ def generate():
     avatar.save(avatar_path)
 
     video = generate_pipeline(script, avatar_path)
-    return jsonify({"video": "/" + video})
 
-@app.route("/outputs/<path:filename>")
-def serve_video(filename):
-    return send_from_directory("outputs", filename)
+    return jsonify({"video": video})
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True, use_reloader=False)
