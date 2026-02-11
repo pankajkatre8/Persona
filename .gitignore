@@ -305,3 +305,10 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/node,flask
+
+# Model weights
+*.pth
+*.pt
+*.ckpt
+backend/gfpgan/weights/
+models/
